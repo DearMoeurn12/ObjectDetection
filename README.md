@@ -1,18 +1,18 @@
 # ObjectDetection
 
-### 1. Collect and label training data: Collect images and label them with bounding boxes around the objects of interest using a tool like LabelImg.
+1. Collect and label training data: Collect images and label them with bounding boxes around the objects of interest using a tool like LabelImg.
 
-### 2. Convert data to TFRecord format: Convert the labeled images into the TFRecord format required by TensorFlow's Object Detection API using the create_tf_record.py script provided with the API.
+2. Convert data to TFRecord format: Convert the labeled images into the TFRecord format required by TensorFlow's Object Detection API using the create_tf_record.py script provided with the API.
 
-### 3.Create a label map: Create a label map file that maps each object class to an integer ID.
+3.Create a label map: Create a label map file that maps each object class to an integer ID.
 
-### 4.Configure the training pipeline: Create a pipeline configuration file that specifies the model architecture, training and evaluation settings, and paths to the training and evaluation data.
+4.Configure the training pipeline: Create a pipeline configuration file that specifies the model architecture, training and evaluation settings, and paths to the training and evaluation data.
 
-### 5.Train the model: Train the model using the model_main_tf2.py script provided with the API.
+5.Train the model: Train the model using the model_main_tf2.py script provided with the API.
 
-### 6.Export the trained model: Export the trained model as a saved model using the exporter_main_v2.py script provided with the API.
+6.Export the trained model: Export the trained model as a saved model using the exporter_main_v2.py script provided with the API.
 
-### 7.Test the model: Test the model by running inference on new images using the exported saved model.
+7.Test the model: Test the model by running inference on new images using the exported saved model.
 
 Here's an example of how to implement steps 4 and 5:
 
@@ -66,3 +66,6 @@ model_main_v2.run_main(
 )
 
 ````
+In the above code, we first load the pipeline configuration file using config_util.get_configs_from_pipeline_file(). We then modify the pipeline configuration to specify the number of object classes, batch size, fine-tune checkpoint, paths to the training and evaluation data, and label map file.
+
+We then save the modified pipeline configuration file and start training the model using model_main_v2.run_main(). This will train the model for 10000 steps, evaluating every 1000 steps, and save the trained model checkpoints to the specified
